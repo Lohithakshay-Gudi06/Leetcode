@@ -1,19 +1,19 @@
 class Solution {
     public void moveZeroes(int[] nums) {
 
-        int index = 0; // position for next non-zero
+        int index = 0; // where next non-zero should be placed
 
         for (int i = 0; i < nums.length; i++) {
+
             if (nums[i] != 0) {
-                nums[index] = nums[i];
+
+                // swap nums[i] and nums[index]
+                int temp = nums[i];
+                nums[i] = nums[index];
+                nums[index] = temp;
+
                 index++;
             }
-        }
-
-        // fill remaining with zeros
-        while (index < nums.length) {
-            nums[index] = 0;
-            index++;
         }
     }
 }
